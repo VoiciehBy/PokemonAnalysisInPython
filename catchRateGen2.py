@@ -16,7 +16,7 @@ def statusBonus(pokemon):
         return 0
 
 def A(pokemon, ball):
-    bR = ballRate(ball)
+    bR = u.ballRate(ball)
     rate = pokemon.catchRate * bR
     bonus = statusBonus(pokemon)
 

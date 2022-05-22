@@ -16,23 +16,23 @@ def main():
     ultra = ball.ball(e.BALLS.ULTRABALL)
     master = ball.ball(e.BALLS.MASTERBALL)
 
-   # for i in range(2):
-   #     no = i + 1
-   #     print(rattata.name + " #" + str(no) + ":")
-   #     g1.printCaught(g1.throw(poke, rattata), rattata.name)
-   #     print(raichu.name + " #" + str(no) + ":")
-   #     g1.printCaught(g1.throw(poke, raichu), raichu.name)
-   #     print(mewtwo.name + " #" + str(no) + ":")
-   #     g1.printCaught(g1.throw(poke, mewtwo), mewtwo.name)
+    for i in range(2):
+        no = i + 1
+        print(rattata.name + " #" + str(no) + ":")
+        g1.printCaught(g1.throw(poke, rattata), rattata.name)
+        print(raichu.name + " #" + str(no) + ":")
+        g1.printCaught(g1.throw(poke, raichu), raichu.name)
+        print(mewtwo.name + " #" + str(no) + ":")
+        g1.printCaught(g1.throw(poke, mewtwo), mewtwo.name)
 
-   # for i in range(1):
-   #     no = i + 1
-   #     print(rattata.name + " #" + str(no) + ":")
-   #     g2.printCaught(g2.throw(poke, rattata), rattata.name)
-   #     print(raichu.name + " #" + str(no) + ":")
-   #     g2.printCaught(g2.throw(ultra, raichu), raichu.name)
-   #     print(mewtwo.name + " #" + str(no) + ":")
-   #     g2.printCaught(g2.throw(master, mewtwo), mewtwo.name)
+    for i in range(1):
+        no = i + 1
+        print(rattata.name + " #" + str(no) + ":")
+        g2.printCaught(g2.throw(poke, rattata), rattata.name)
+        print(raichu.name + " #" + str(no) + ":")
+        g2.printCaught(g2.throw(ultra, raichu), raichu.name)
+        print(mewtwo.name + " #" + str(no) + ":")
+        g2.printCaught(g2.throw(master, mewtwo), mewtwo.name)
 
     for i in range(1):
         no = i + 1
