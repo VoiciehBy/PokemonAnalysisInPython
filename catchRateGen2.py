@@ -15,20 +15,6 @@ def statusBonus(pokemon):
     else:
         return 0
 
-
-def ballRate(ball):
-    if(ball.type == e.BALLS.MASTERBALL):
-        return 255
-    elif(ball.type == e.BALLS.POKEBALL):
-        return 1
-    elif(ball.type in {e.BALLS.GREATBALL, e.BALLS.SAFARIBALL}):
-        return 1.5
-    elif(e.BALLS.ULTRABALL):
-        return 2
-    else:
-        return 1
-
-
 def A(pokemon, ball):
     bR = ballRate(ball)
     rate = pokemon.catchRate * bR

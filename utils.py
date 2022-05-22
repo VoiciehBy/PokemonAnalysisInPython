@@ -20,6 +20,23 @@ def hasNegativeStatus(pokemon):
     else:
         return False
 
+def ballRate(ball):
+    if(ball.type == e.BALLS.MASTERBALL):
+        return 255
+    elif(ball.type == e.BALLS.POKEBALL):
+        return 1
+    elif(ball.type in {e.BALLS.GREATBALL, e.BALLS.SAFARIBALL}):
+        return 1.5
+    elif(e.BALLS.ULTRABALL):
+        return 2
+    else:
+        return 1
+    
 def printShake(x):
     for i in range(x):
         print("Shake...")
+
+def printCaught(b, name):
+    if(b):
+        print("Shake...\nShake...\nShake and click...")
+        print("Gotcha! " + name + " was caught!")

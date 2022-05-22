@@ -14,22 +14,8 @@ def statusBonus(pokemon):
     else:
         return 1
 
-
-def ballRate(ball):
-    if(ball.type == e.BALLS.MASTERBALL):
-        return 255
-    elif(ball.type == e.BALLS.POKEBALL):
-        return 1
-    elif(ball.type in {e.BALLS.GREATBALL, e.BALLS.SAFARIBALL}):
-        return 1.5
-    elif(e.BALLS.ULTRABALL):
-        return 2
-    else:
-        return 1
-
-
 def A(pokemon, ball):
-    bR = ballRate(ball)
+    bR = u.ballRate(ball)
     rate = pokemon.catchRate
     bonus = statusBonus(pokemon)
 
@@ -67,7 +53,7 @@ def printQuote(x):
     elif(x == 2):
         print("Aargh! Almost had it!")
     elif(x == 3):
-        print("Shoot! It was so close too!")
+        print("Shoot! It was so close, too!")
 
 def printShakeAndQuote(x):
     shakeCount = ballShake(x)
