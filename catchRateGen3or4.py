@@ -69,15 +69,9 @@ def printQuote(x):
     elif(x == 3):
         print("Shoot! It was so close too!")
 
-
-def printShake(x):
-    for i in range(x):
-        print("Shake...")
-
-
 def printShakeAndQuote(x):
     shakeCount = ballShake(x)
-    printShake(shakeCount)
+    u.printShake(shakeCount)
     printQuote(shakeCount)
 
 

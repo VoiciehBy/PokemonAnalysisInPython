@@ -19,3 +19,7 @@ def hasNegativeStatus(pokemon):
         return True
     else:
         return False
+
+def printShake(x):
+    for i in range(x):
+        print("Shake...")

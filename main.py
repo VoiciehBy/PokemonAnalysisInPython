@@ -37,10 +37,10 @@ def main():
     for i in range(1):
         no = i + 1
         print(rattata.name + " #" + str(no) + ":")
-        g3g4.printCaught(g3.throw(poke, rattata), rattata.name)
+        g3g4.printCaught(g3g4.throw(poke, rattata), rattata.name)
         print(raichu.name + " #" + str(no) + ":")
-        g3g4.printCaught(g3.throw(ultra, raichu), raichu.name)
+        g3g4.printCaught(g3g4.throw(ultra, raichu), raichu.name)
         print(mewtwo.name + " #" + str(no) + ":")
-        g3g4.printCaught(g3.throw(master, mewtwo), mewtwo.name)
+        g3g4.printCaught(g3g4.throw(master, mewtwo), mewtwo.name)
 
 main()
