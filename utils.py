@@ -40,3 +40,10 @@ def printCaught(b, name):
     if(b):
         print("Shake...\nShake...\nShake and click...")
         print("Gotcha! " + name + " was caught!")
+
+def toBinaryString(x):
+   return str(format(int(x),'04b'))
+
+
+def fromBinaryStringToNumber(str):
+    return int(str,2)
