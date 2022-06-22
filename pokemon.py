@@ -1,8 +1,9 @@
 import pokebase
 import generateStats as gS
 
+
 class pokemon:
-    def __init__(self, name, level, status,hp):
+    def __init__(self, name, level, status, hp):
         self.pokebasePokemon = pokebase.pokemon(name)
         self.name = name.upper()
         self.level = level

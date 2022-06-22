@@ -85,6 +85,7 @@ def printQuote(x):
     elif(x == 3):
         print("Shoot! It was so close too!")
 
+
 def printShakeAndQuote(pokemon, ball):
     u.printShake(ballShake(pokemon, ball))
     printQuote(ballShake(pokemon, ball))

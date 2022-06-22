@@ -14,6 +14,7 @@ def statusBonus(pokemon):
     else:
         return 1
 
+
 def A(pokemon, ball):
     bR = u.ballRate(ball)
     rate = pokemon.catchRate
@@ -54,6 +55,7 @@ def printQuote(x):
         print("Aargh! Almost had it!")
     elif(x == 3):
         print("Shoot! It was so close, too!")
+
 
 def printShakeAndQuote(x):
     shakeCount = ballShake(x)

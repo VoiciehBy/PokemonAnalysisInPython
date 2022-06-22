@@ -9,6 +9,7 @@ class STATUS(Enum):
     BURNED = 4,
     POISONED = 5
 
+
 class BALLS(Enum):
     POKEBALL = 6,
     GREATBALL = 7,

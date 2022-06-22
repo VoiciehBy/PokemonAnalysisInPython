@@ -1,5 +1,6 @@
-import pokemon 
+import pokemon
 import enums as e
+
 
 def isFrozenOrAsleep(pokemon):
     if(pokemon.status in {e.STATUS.FROZEN, e.STATUS.ASLEEP}):
@@ -14,11 +15,13 @@ def isParalyzedOrBurnedOrPoisoned(pokemon):
     else:
         return False
 
+
 def hasNegativeStatus(pokemon):
     if (isFrozenOrAsleep(pokemon) or isParalyzedOrBurnedOrPoisoned(pokemon)):
         return True
     else:
         return False
+
 
 def ballRate(ball):
     if(ball.type == e.BALLS.MASTERBALL):
@@ -31,19 +34,22 @@ def ballRate(ball):
         return 2
     else:
         return 1
-    
+
+
 def printShake(x):
     for i in range(x):
         print("Shake...")
+
 
 def printCaught(b, name):
     if(b):
         print("Shake...\nShake...\nShake and click...")
         print("Gotcha! " + name + " was caught!")
 
+
 def toBinaryString(x):
-   return str(format(int(x),'04b'))
+    return str(format(int(x), '04b'))
 
 
 def fromBinaryStringToNumber(str):
-    return int(str,2)
+    return int(str, 2)
