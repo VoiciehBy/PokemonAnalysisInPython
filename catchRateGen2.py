@@ -5,6 +5,7 @@ import random
 import enums as e
 import utils as u
 import shakeLookUpTable as sLT
+import quotes as q
 
 
 def statusBonus(pokemon):
@@ -42,13 +43,13 @@ def ballShake(x):
 
 def printQuote(x):
     if(x == 0):
-        print("Oh no! The POKEMON broke free!")
+        print(q.QUOTES[4])
     elif(x == 1):
-        print("Aww! It appeared to be caught!")
+        print(q.QUOTES[2])
     elif(x == 2):
-        print("Aargh! Almost had it!")
+        print(q.QUOTES[5])
     elif(x == 3):
-        print("Shoot! It was so close too!")
+        print(q.QUOTES[3])
 
 
 def printShakeAndQuote(x):

@@ -4,6 +4,7 @@ import math
 import random
 import enums as e
 import utils as u
+import quotes as q
 
 
 def N(ball):
@@ -76,15 +77,7 @@ def statusThreshold(pokemon):
 
 
 def printQuote(x):
-    if(x == 0):
-        print("You missed the POKEMON!")
-    elif(x == 1):
-        print("Darn! The POKEMON broke free!")
-    elif(x == 2):
-        print("Aww! It appeared to be caught!")
-    elif(x == 3):
-        print("Shoot! It was so close too!")
-
+    print(q.QUOTES[x])
 
 def printShakeAndQuote(pokemon, ball):
     u.printShake(ballShake(pokemon, ball))
