@@ -1,4 +1,5 @@
 import DVGen1 as dv
+import StatEXPGen1 as sEXP
 import stats as s
 
 
@@ -9,15 +10,15 @@ def generateStats(pokemon):
     specialDV = dv.generateDV()
     hpDV = dv.generateHPDV(attackDV, defenseDV, speedDV, specialDV)
 
-    hpStatEXP = dv.generateStatEXP()
-    attackStatEXP = dv.generateStatEXP()
-    defenseStatEXP = dv.generateStatEXP()
-    specialStatEXP = dv.generateStatEXP()
-    speedStatEXP = dv.generateStatEXP()
+    hpStatEXP = sEXP.generateStatEXP()
+    attackStatEXP = sEXP.generateStatEXP()
+    defenseStatEXP = sEXP.generateStatEXP()
+    specialStatEXP = sEXP.generateStatEXP()
+    speedStatEXP = sEXP.generateStatEXP()
 
     hp = dv.HPStat(pokemon, hpStatEXP, hpDV)
     attack = dv.AttackStat(pokemon, attackStatEXP, attackDV)
-    defense = dv.DefensekStat(pokemon, defenseStatEXP, defenseDV)
+    defense = dv.DefenseStat(pokemon, defenseStatEXP, defenseDV)
     specialAttack = dv.SpecialAttackStat(pokemon, specialStatEXP, specialDV)
     specialDefense = dv.SpecialAttackStat(pokemon, specialStatEXP, specialDV)
     speed = dv.SpeedStat(pokemon, speedStatEXP, speedDV)

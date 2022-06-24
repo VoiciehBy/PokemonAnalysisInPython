@@ -1,5 +1,6 @@
 import pokemon
 import enums as e
+import random
 
 
 def isFrozenOrAsleep(pokemon):
@@ -53,3 +54,7 @@ def toBinaryString(x):
 
 def fromBinaryStringToNumber(str):
     return int(str, 2)
+
+def newRandomNewSeed(a,b):
+    random.seed()
+    return random.randint(a, b)

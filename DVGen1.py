@@ -3,14 +3,8 @@ import utils as u
 import math
 
 
-def generateStatEXP():
-    random.seed()
-    return random.randint(0, 15)
-
-
 def generateDV():
-    random.seed()
-    return random.randint(0, 15)
+    return u.newRandomNewSeed(0, 15)
 
 
 def generateHPDV(attack, defense, speed, special):
@@ -22,8 +16,7 @@ def generateHPDV(attack, defense, speed, special):
     return u.fromBinaryStringToNumber(s)
 
 
-def Stat(pokemon, id, statEXP, dv):
-    baseStat = pokemon.pokebasePokemon.stats[id].base_stat
+def Stat(pokemon, baseStat, statEXP, dv):
     statEXPSqrt = math.sqrt(statEXP)
     level = pokemon.level
     numerator = (((baseStat + dv) * 2) + math.floor((statEXPSqrt/4))) * level
@@ -33,7 +26,7 @@ def Stat(pokemon, id, statEXP, dv):
 
 
 def HPStat(pokemon, statEXP, hpDV):
-    baseHP = pokemon.getBaseHP()
+    baseHP = pokemon.baseHP
     statEXPSqrt = math.sqrt(statEXP)
     level = pokemon.level
 
@@ -44,20 +37,20 @@ def HPStat(pokemon, statEXP, hpDV):
 
 
 def AttackStat(pokemon, statExp, dv):
-    return Stat(pokemon, 1, statExp, dv)
+    return Stat(pokemon, pokemon.baseAttack, statExp, dv)
 
 
-def DefensekStat(pokemon, statExp, dv):
-    return Stat(pokemon, 2, statExp, dv)
+def DefenseStat(pokemon, statExp, dv):
+    return Stat(pokemon, pokemon.baseDefense, statExp, dv)
 
 
 def SpecialAttackStat(pokemon, statExp, dv):
-    return Stat(pokemon, 3, statExp, dv)
+    return Stat(pokemon, pokemon.baseSpecialAttack, statExp, dv)
 
 
 def SpecialDefensekStat(pokemon, statExp, dv):
-    return Stat(pokemon, 4, statExp, dv)
+    return Stat(pokemon, pokemon.baseSpecialDefense, statExp, dv)
 
 
 def SpeedStat(pokemon, statExp, dv):
-    return Stat(pokemon, 5, statExp, dv)
+    return Stat(pokemon, pokemon.baseSpeed, statExp, dv)
