@@ -16,41 +16,38 @@ def generateHPDV(attack, defense, speed, special):
     return u.fromBinaryStringToNumber(s)
 
 
-def Stat(pokemon, baseStat, statEXP, dv):
+def Stat(pokemon, baseStat, statEXP, dv, isHP):
     statEXPSqrt = math.sqrt(statEXP)
     level = pokemon.level
     numerator = (((baseStat + dv) * 2) + math.floor((statEXPSqrt/4))) * level
     denominator = 100
-    result = math.floor(numerator/denominator) + 5
+    result = math.floor(numerator/denominator)
+    if isHP is True:
+        result = result + level + 10
+    else:
+        result += 5
     return result
 
 
 def HPStat(pokemon, statEXP, hpDV):
-    baseHP = pokemon.baseHP
-    statEXPSqrt = math.sqrt(statEXP)
-    level = pokemon.level
-
-    numerator = (((baseHP + hpDV) * 2) + math.floor((statEXPSqrt/4))) * level
-    denominator = 100
-    result = math.floor(numerator/denominator) + level + 10
-    return result
+    return Stat(pokemon, pokemon.getBaseHP(), statEXP, hpDV, True)
 
 
-def AttackStat(pokemon, statExp, dv):
-    return Stat(pokemon, pokemon.baseAttack, statExp, dv)
+def AttackStat(pokemon, statEXP, dv):
+    return Stat(pokemon, pokemon.getBaseAttack(), statEXP, dv, False)
 
 
-def DefenseStat(pokemon, statExp, dv):
-    return Stat(pokemon, pokemon.baseDefense, statExp, dv)
+def DefenseStat(pokemon, statEXP, dv):
+    return Stat(pokemon, pokemon.getBaseDefense(), statEXP, dv, False)
 
 
-def SpecialAttackStat(pokemon, statExp, dv):
-    return Stat(pokemon, pokemon.baseSpecialAttack, statExp, dv)
+def SpecialAttackStat(pokemon, statEXP, dv):
+    return Stat(pokemon, pokemon.getBaseSpecialAttack(), statEXP, dv, False)
 
 
-def SpecialDefensekStat(pokemon, statExp, dv):
-    return Stat(pokemon, pokemon.baseSpecialDefense, statExp, dv)
+def SpecialDefensekStat(pokemon, statEXP, dv):
+    return Stat(pokemon, pokemon.getBaseSpecialDefense(), statEXP, dv, False)
 
 
-def SpeedStat(pokemon, statExp, dv):
-    return Stat(pokemon, pokemon.baseSpeed, statExp, dv)
+def SpeedStat(pokemon, statEXP, dv):
+    return Stat(pokemon, pokemon.getBaseSpeed(), statEXP, dv, False)

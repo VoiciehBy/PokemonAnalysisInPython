@@ -6,12 +6,13 @@ import pokemon
 import ball
 import DVGen1 as dv
 import numpy
-
+import time
+start = time.time()
 
 def main():
-    #rattata = pokemon.pokemon("rattata",100, e.STATUS.ASLEEP,1)
-    #raichu = pokemon.pokemon("raichu",100, e.STATUS.NONE, 1)
-    #mewtwo = pokemon.pokemon("mewtwo",100, e.STATUS.NONE,1)
+    rattata = pokemon.pokemon("rattata",100, e.STATUS.ASLEEP,1)
+    raichu = pokemon.pokemon("raichu",100, e.STATUS.NONE, 1)
+    mewtwo = pokemon.pokemon("mewtwo",100, e.STATUS.NONE,1)
     karpador = pokemon.pokemon("magikarp",100,e.STATUS.NONE,50)
 
     poke = ball.ball(e.BALLS.POKEBALL)
@@ -50,3 +51,4 @@ def main():
     print(karpador.stats.attack.ev)
     print(karpador.stats.attack.iv)
 main()
+print("--- %s seconds ---" % (time.time() - start))
