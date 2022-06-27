@@ -58,12 +58,6 @@ def printShakeAndQuote(x):
     printQuote(shakeCount)
 
 
-def printCaught(b, name):
-    if(b):
-        print("Shake...\nShake...\nShake and click...")
-        print("Gotcha! " + name + " was caught!")
-
-
 def throw(ball, pokemon):
     random.seed()
     r = random.randint(0, 255)

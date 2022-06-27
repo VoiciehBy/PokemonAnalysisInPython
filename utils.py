@@ -42,6 +42,12 @@ def printShake(x):
         print("Shake...")
 
 
+def printCaughtGen1(b, name):
+    if(b):
+        print("Shake...\nShake...\nShake and click...")
+        print("All right! " + name + " was caught!")
+
+
 def printCaught(b, name):
     if(b):
         print("Shake...\nShake...\nShake and click...")
@@ -55,6 +61,7 @@ def toBinaryString(x):
 def fromBinaryStringToNumber(str):
     return int(str, 2)
 
-def newRandomNewSeed(a,b):
+
+def newRandomNewSeed(a, b):
     random.seed()
     return random.randint(a, b)

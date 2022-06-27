@@ -1,8 +1,8 @@
-import pokemon
 import ball
-import math
-import random
 import enums as e
+import random
+import pokemon
+import math
 import utils as u
 import quotes as q
 
@@ -79,15 +79,10 @@ def statusThreshold(pokemon):
 def printQuote(x):
     print(q.QUOTES[x])
 
+
 def printShakeAndQuote(pokemon, ball):
     u.printShake(ballShake(pokemon, ball))
     printQuote(ballShake(pokemon, ball))
-
-
-def printCaught(b, name):
-    if(b):
-        print("Shake...\nShake...\nShake and click...")
-        print("All right! " + name + " was caught!")
 
 
 def throw(ball, pokemon):
@@ -102,8 +97,7 @@ def throw(ball, pokemon):
             printShakeAndQuote(pokemon, ball)
             return False
         else:
-            random.seed()
-            m = random.randint(0, 255)
+            m = newRandomNewSeed(0, 255)
             f = F(pokemon, ball)
             if(f >= m):
                 return True
