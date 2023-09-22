@@ -3,28 +3,28 @@ import enums as e
 import random
 
 
-def isFrozenOrAsleep(pokemon):
+def isFrozenOrAsleep(pokemon) -> bool:
     if(pokemon.status in {e.STATUS.FROZEN, e.STATUS.ASLEEP}):
         return True
     else:
         return False
 
 
-def isParalyzedOrBurnedOrPoisoned(pokemon):
+def isParalyzedOrBurnedOrPoisoned(pokemon) -> bool:
     if(pokemon.status in {e.STATUS.PARALYZED, e.STATUS.BURNED, e.STATUS.POISONED}):
         return True
     else:
         return False
 
 
-def hasNegativeStatus(pokemon):
+def hasNegativeStatus(pokemon) -> bool:
     if (isFrozenOrAsleep(pokemon) or isParalyzedOrBurnedOrPoisoned(pokemon)):
         return True
     else:
         return False
 
 
-def ballRate(ball):
+def ballRate(ball) -> int:
     if(ball.type == e.BALLS.MASTERBALL):
         return 255
     elif(ball.type == e.BALLS.POKEBALL):
@@ -54,14 +54,14 @@ def printCaught(b, name):
         print("Gotcha! " + name + " was caught!")
 
 
-def toBinaryString(x):
+def toBinaryString(x) -> str:
     return str(format(int(x), '04b'))
 
 
-def fromBinaryStringToNumber(str):
+def fromBinaryStringToNumber(str) -> int:
     return int(str, 2)
 
 
-def newRandomNewSeed(a, b):
+def newRandomNewSeed(a, b) -> int:
     random.seed()
     return random.randint(a, b)
