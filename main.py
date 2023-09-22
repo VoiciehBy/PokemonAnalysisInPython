@@ -17,7 +17,7 @@ def main():
     great = ball.ball(e.BALLS.GREATBALL)
     ultra = ball.ball(e.BALLS.ULTRABALL)
     master = ball.ball(e.BALLS.MASTERBALL)
-    '''
+    
     for i in range(2):
         no = i + 1
         print(rattata.name + " #" + str(no) + ":")
@@ -48,6 +48,6 @@ def main():
     print(karpador.stats.attack.current)
     print(karpador.stats.attack.ev)
     print(karpador.stats.attack.iv)
-    '''
+    
 
 main()

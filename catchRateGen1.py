@@ -97,7 +97,7 @@ def throw(ball, pokemon):
             printShakeAndQuote(pokemon, ball)
             return False
         else:
-            m = newRandomNewSeed(0, 255)
+            m = u.newRandomNewSeed(0, 255)
             f = F(pokemon, ball)
             if(f >= m):
                 return True
