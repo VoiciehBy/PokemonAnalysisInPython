@@ -7,44 +7,46 @@ import utils as u
 import quotes as q
 
 
-def statusBonus(pokemon):
+def statusBonus(pokemon) -> float:
     if(u.isFrozenOrAsleep(pokemon)):
-        return 2
+        return float(2.0)
     elif(u.isParalyzedOrBurnedOrPoisoned(pokemon)):
-        return 1.5
+        return float(1.5)
     else:
-        return 1
+        return float(1.0)
 
 
-def A(pokemon, ball):
-    bR = u.ballRate(ball)
+def A(pokemon, ball) -> float:
+    bR: int = u.ballRate(ball)
     rate = pokemon.catchRate
-    bonus = statusBonus(pokemon)
+    bonus: float = statusBonus(pokemon)
 
-    numerator = ((3*pokemon.hpMax) - (2 * pokemon.hp)) * rate * bR
-    denominator = (3*pokemon.hpMax)
-    result = (numerator/denominator) * bonus
-    return result
-
-
-def B(x):
-    numerator = 1048560
-    c = 16711680
-    denominator = math.sqrt(math.sqrt(c/x))
-    result = (numerator / denominator)
-    return result
+    numerator: float = ((3*pokemon.hpMax) - (2 * pokemon.hp)) * rate * bR
+    denominator: float = (3*pokemon.hpMax)
+    numerator *= 1.0
+    denominator *= 1.0
+    result: float = float(float(numerator/denominator) * bonus)
+    return float(result)
 
 
-def ballShake(x):
-    c = 0
+def B(x) -> float:
+    numerator: float = 1048560.0
+    c: float = 16711680.0
+    denominator: float = math.sqrt(math.sqrt(c/x))
+    result: float = float(numerator / denominator)
+    return float(result)
+
+
+def ballShake(x) -> int:
+    c: int = 0
     while(3 != 5 and c != 3):
         random.seed()
-        r = random.randint(0, 65535)
+        r: int = random.randint(0, 65535)
         if(r >= B(x)):
             break
         else:
             c = c + 1
-    return c
+    return int(c)
 
 
 def printQuote(x):
@@ -59,7 +61,7 @@ def printQuote(x):
 
 
 def printShakeAndQuote(x):
-    shakeCount = ballShake(x)
+    shakeCount: int = ballShake(x)
     u.printShake(shakeCount)
     printQuote(shakeCount)
 
@@ -70,12 +72,13 @@ def printCaught(b, name):
         print("Gotcha! " + name + " was caught!")
 
 
-def throw(ball, pokemon):
+def throw(ball, pokemon) -> bool:
     random.seed()
-    r = random.randint(0, 255)
-    a = A(pokemon, ball)
+    r: float = random.randint(0, 255)
+    a: float = A(pokemon, ball)
 
     if((a >= 255) or (ballShake(a) == 4)):
+        printCaught(True, pokemon.name)
         return True
     else:
         printShakeAndQuote(a)
