@@ -1,14 +1,14 @@
 import pokemon
-import ball
 import math
 import random
-import enums as e
 import utils as u
 import shakeLookUpTable as sLT
-import quotes as q
+
+from enums import BALL_TYPES
+from quotes import QUOTES
 
 
-def statusBonus(pokemon) -> int:
+def statusBonus(pokemon: pokemon) -> int:
     if(u.isFrozenOrAsleep(pokemon)):
         return 10
     elif(u.isParalyzedOrBurnedOrPoisoned(pokemon)):
@@ -17,8 +17,8 @@ def statusBonus(pokemon) -> int:
         return 0
 
 
-def A(pokemon, ball) -> int:
-    bR: int = u.ballRate(ball)
+def A(pokemon: pokemon, ball_type: BALL_TYPES) -> int:
+    bR: int = u.ballRate(ball_type)
     rate: int = pokemon.catchRate * bR
     bonus: int = statusBonus(pokemon)
 
@@ -29,7 +29,7 @@ def A(pokemon, ball) -> int:
     return result
 
 
-def ballShake(x) -> int:
+def ballShake(x: int) -> int:
     c: int = 0
     while(3 != 5 and c != 3):
         random.seed()
@@ -43,25 +43,25 @@ def ballShake(x) -> int:
 
 def printQuote(x):
     if(x == 0):
-        print(q.QUOTES[4])
+        print(QUOTES[4])
     elif(x == 1):
-        print(q.QUOTES[2])
+        print(QUOTES[2])
     elif(x == 2):
-        print(q.QUOTES[5])
+        print(QUOTES[5])
     elif(x == 3):
-        print(q.QUOTES[x])
+        print(QUOTES[x])
 
 
-def printShakeAndQuote(x):
-    shakeCount = ballShake(x)
+def printShakeAndQuote(x: int):
+    shakeCount: int = ballShake(x)
     u.printShake(shakeCount)
     printQuote(shakeCount)
 
 
-def throw(ball, pokemon):
+def throw(ball_type: BALL_TYPES, pokemon: pokemon):
     random.seed()
     r: int = random.randint(0, 255)
-    a: int = A(pokemon, ball)
+    a: int = A(pokemon, ball_type)
     if(r <= a):
         return True
     else:

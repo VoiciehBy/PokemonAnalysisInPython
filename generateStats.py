@@ -1,33 +1,66 @@
 import DVGen1 as dv
 import StatEXPGen1 as sEXP
-import stats as s
 
 
-def generateStats(pokemon):
-    attackDV = dv.generateDV()
-    defenseDV = dv.generateDV()
-    speedDV = dv.generateDV()
-    specialDV = dv.generateDV()
-    hpDV = dv.generateHPDV(attackDV, defenseDV, speedDV, specialDV)
+def generateStats(pokemon) -> dict:
+    attackDV: int = dv.generateDV()
+    defenseDV: int = dv.generateDV()
+    speedDV: int = dv.generateDV()
+    specialDV: int = dv.generateDV()
+    hpDV: int = dv.generateHPDV(attackDV, defenseDV, speedDV, specialDV)
 
-    hpStatEXP = sEXP.generateStatEXP()
-    attackStatEXP = sEXP.generateStatEXP()
-    defenseStatEXP = sEXP.generateStatEXP()
-    specialStatEXP = sEXP.generateStatEXP()
-    speedStatEXP = sEXP.generateStatEXP()
+    hpStatEXP: int = sEXP.generateStatEXP()
+    attackStatEXP: int = sEXP.generateStatEXP()
+    defenseStatEXP: int = sEXP.generateStatEXP()
+    specialStatEXP: int = sEXP.generateStatEXP()
+    speedStatEXP: int = sEXP.generateStatEXP()
 
-    hp = dv.HPStat(pokemon, hpStatEXP, hpDV)
-    attack = dv.AttackStat(pokemon, attackStatEXP, attackDV)
-    defense = dv.DefenseStat(pokemon, defenseStatEXP, defenseDV)
-    specialAttack = dv.SpecialAttackStat(pokemon, specialStatEXP, specialDV)
-    specialDefense = dv.SpecialAttackStat(pokemon, specialStatEXP, specialDV)
-    speed = dv.SpeedStat(pokemon, speedStatEXP, speedDV)
+    hp: int = dv.HPStat(pokemon, hpStatEXP, hpDV)
+    attack: int = dv.AttackStat(pokemon, attackStatEXP, attackDV)
+    defense: int = dv.DefenseStat(pokemon, defenseStatEXP, defenseDV)
+    specialAttack: int = dv.SpecialAttackStat(
+        pokemon, specialStatEXP, specialDV)
+    specialDefense: int = dv.SpecialAttackStat(
+        pokemon, specialStatEXP, specialDV)
+    speed: int = dv.SpeedStat(pokemon, speedStatEXP, speedDV)
 
-    hpStat = s.stat(hp, hpStatEXP, hpDV)
-    attackStat = s.stat(attack, attackStatEXP, attackDV)
-    defenseStat = s.stat(defense, defenseStatEXP, defenseDV)
-    specialAttackStat = s.stat(specialAttack, specialStatEXP, specialDV)
-    specialDefenseStat = s.stat(specialDefense, specialStatEXP, specialDV)
-    speedStat = s.stat(speed, speedStatEXP, speedDV)
+    hpStat: dict = {
+        "current": hp,
+        "ev": hpStatEXP,
+        "iv": hpDV
+    }
+    attackStat: dict = {
+        "current": attack,
+        "ev": attackStatEXP,
+        "iv": attackDV
+    }
+    defenseStat: dict = {
+        "current": defense,
+        "ev": defenseStatEXP,
+        "iv": defenseDV
+    }
+    specialAttackStat: dict = {
+        "current": specialAttack,
+        "ev": specialStatEXP,
+        "iv": specialDV
+    }
+    specialDefenseStat: dict = {
+        "current": specialDefense,
+        "ev": specialStatEXP,
+        "iv": specialDV
+    }
+    speedStat: dict = {
+        "current": speed,
+        "ev": speedStatEXP,
+        "iv": speedDV
+    }
 
-    return s.stats(hpStat, attackStat, defenseStat, specialAttackStat, specialDefenseStat, speedStat)
+    result: dict = {
+        "hp": hpStat,
+        "attack": attackStat,
+        "defense": defenseStat,
+        "specialAttack": specialAttackStat,
+        "specialDefense": specialDefenseStat,
+        "speed": speedStat
+    }
+    return result

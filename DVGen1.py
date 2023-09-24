@@ -1,27 +1,28 @@
-import random
 import utils as u
+import pokemon
 import math
 
 
-def generateDV():
+def generateDV() -> int:
     return u.newRandomNewSeed(0, 15)
 
 
-def generateHPDV(attack, defense, speed, special):
-    a = u.toBinaryString(attack)[3]
-    d = u.toBinaryString(defense)[3]
-    sp = u.toBinaryString(speed)[3]
-    sp1 = u.toBinaryString(special)[3]
-    s = a + d + sp + sp1
+def generateHPDV(attack: int, defense: int, speed: int, special: int) -> int:
+    a: str = u.toBinaryString(attack)[3]
+    d: str = u.toBinaryString(defense)[3]
+    sp: str = u.toBinaryString(speed)[3]
+    sp1: str = u.toBinaryString(special)[3]
+    s: str = a + d + sp + sp1
     return u.fromBinaryStringToNumber(s)
 
 
-def Stat(pokemon, baseStat, statEXP, dv, isHP):
-    statEXPSqrt = math.sqrt(statEXP)
-    level = pokemon.level
-    numerator = (((baseStat + dv) * 2) + math.floor((statEXPSqrt/4))) * level
-    denominator = 100
-    result = math.floor(numerator/denominator)
+def Stat(pokemon: pokemon, baseStat: int, statEXP: int, dv: int, isHP: bool) -> int:
+    statEXPSqrt: float = math.sqrt(statEXP)
+    level: int = pokemon.lvl
+    numerator: int = (((baseStat + dv) * 2) +
+                      math.floor((statEXPSqrt/4))) * level
+    denominator: int = 100
+    result: int = math.floor(numerator/denominator)
     if isHP is True:
         result = result + level + 10
     else:
@@ -29,25 +30,25 @@ def Stat(pokemon, baseStat, statEXP, dv, isHP):
     return result
 
 
-def HPStat(pokemon, statEXP, hpDV):
-    return Stat(pokemon, pokemon.getBaseHP(), statEXP, hpDV, True)
+def HPStat(pokemon: pokemon, statEXP: int, hpDV: int) -> int:
+    return Stat(pokemon, pokemon.baseHP, statEXP, hpDV, True)
 
 
-def AttackStat(pokemon, statEXP, dv):
-    return Stat(pokemon, pokemon.getBaseAttack(), statEXP, dv, False)
+def AttackStat(pokemon: pokemon, statEXP: int, dv: int) -> int:
+    return Stat(pokemon, pokemon.baseAttack, statEXP, dv, False)
 
 
-def DefenseStat(pokemon, statEXP, dv):
-    return Stat(pokemon, pokemon.getBaseDefense(), statEXP, dv, False)
+def DefenseStat(pokemon: pokemon, statEXP: int, dv: int) -> int:
+    return Stat(pokemon, pokemon.baseDefense, statEXP, dv, False)
 
 
-def SpecialAttackStat(pokemon, statEXP, dv):
-    return Stat(pokemon, pokemon.getBaseSpecialAttack(), statEXP, dv, False)
+def SpecialAttackStat(pokemon: pokemon, statEXP: int, dv: int) -> int:
+    return Stat(pokemon, pokemon.baseSpecialAttack, statEXP, dv, False)
 
 
-def SpecialDefensekStat(pokemon, statEXP, dv):
-    return Stat(pokemon, pokemon.getBaseSpecialDefense(), statEXP, dv, False)
+def SpecialDefensekStat(pokemon: pokemon, statEXP: int, dv: int) -> int:
+    return Stat(pokemon, pokemon.baseSpecialDefense, statEXP, dv, False)
 
 
-def SpeedStat(pokemon, statEXP, dv):
-    return Stat(pokemon, pokemon.getBaseSpeed(), statEXP, dv, False)
+def SpeedStat(pokemon, statEXP, dv) -> int:
+    return Stat(pokemon, pokemon.baseSpeed, statEXP, dv, False)
